@@ -2,6 +2,9 @@ package version2.pingpong_v3;
 
 import java.util.concurrent.Semaphore;
 
+/**
+ * Переключение с использованием 2 семафоров
+ */
 public class PingPong {
     private static final int MAX_ITERATIONS = 15;
     private static final Semaphore pingSemaphore = new Semaphore(1); // Начинаем с Ping

@@ -2,6 +2,9 @@ package version2.pingpong_v2;
 
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * Переключатели из счетчиков CountDownLatch
+ */
 public class PingPong {
     private static final int MAX_ITERATIONS = 15;
     private static CountDownLatch pingLatch = new CountDownLatch(1);

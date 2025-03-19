@@ -3,6 +3,9 @@ package version2.pingpong_v4;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * Переключение с помощью захвата ReentrantLock и 2 состояний и дополнительной проверкой очередности через флаг
+ */
 public class PingPong {
     private static final ReentrantLock lock = new ReentrantLock();
     private static final Condition pingCondition = lock.newCondition();

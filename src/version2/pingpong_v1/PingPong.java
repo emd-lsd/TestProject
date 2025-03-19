@@ -1,5 +1,9 @@
 package version2.pingpong_v1;
 
+/**
+ * Использование общего объекта для лока
+ * флаг pingTurn для определения порядка
+ */
 public class PingPong {
     private static final Object lock = new Object();
     private static boolean pingTurn = true;
