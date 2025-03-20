@@ -1,4 +1,4 @@
-package main.java.locks.livelock;
+package main.java.version.third.locks.livelock;
 
 /**
  * Класс Команды с предложением
@@ -54,6 +54,7 @@ public class Crew implements Runnable {
                 // Пример правильной работы через правильную логику
 //                int newValue = selfProposal.getValue() + (selfProposal.getValue() < otherProposal.getValue() ? 1 : -1);
 //                selfProposal.setValue(newValue);
+//                System.out.println(name + " новое значение: " + selfProposal);
             }
 
             try {

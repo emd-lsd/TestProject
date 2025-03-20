@@ -1,4 +1,4 @@
-package main.java.locks.deadlock;
+package main.java.version.third.locks.deadlock;
 
 /**
  * Класс задачи на перевод средств между счетами

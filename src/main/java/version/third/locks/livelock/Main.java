@@ -1,4 +1,4 @@
-package main.java.locks.livelock;
+package main.java.version.third.locks.livelock;
 
 /**
  * Точка входа в программу, создает экземпляр класса переговоров.

@@ -1,4 +1,4 @@
-package main.java.locks.deadlock;
+package main.java.version.third.locks.deadlock;
 
 /**
  * Точка входа в программу
