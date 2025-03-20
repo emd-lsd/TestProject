@@ -1,4 +1,4 @@
-package main.java.version.third.partfirst;
+package main.java.version.third.filestat.partfirst;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

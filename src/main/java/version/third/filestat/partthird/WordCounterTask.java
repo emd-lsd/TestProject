@@ -1,6 +1,6 @@
-package main.java.version.third.partthird;
+package main.java.version.third.filestat.partthird;
 
-import main.java.version.third.partfirst.WordCounterService;
+import main.java.version.third.filestat.partfirst.WordCounterService;
 
 import java.io.IOException;
 import java.nio.file.Path;

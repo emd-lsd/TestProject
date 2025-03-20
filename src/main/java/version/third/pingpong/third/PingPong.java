@@ -1,4 +1,4 @@
-package main.java.version2.pingpong_v3;
+package main.java.version.third.pingpong.third;
 
 import java.util.concurrent.Semaphore;
 

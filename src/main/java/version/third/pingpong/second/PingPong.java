@@ -1,4 +1,4 @@
-package main.java.version2.pingpong_v2;
+package main.java.version.third.pingpong.second;
 
 import java.util.concurrent.CountDownLatch;
 

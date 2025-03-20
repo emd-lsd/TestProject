@@ -1,4 +1,4 @@
-package main.java.version2.pingpong_v1;
+package main.java.version.third.pingpong.first;
 
 /**
  * Использование общего объекта для лока

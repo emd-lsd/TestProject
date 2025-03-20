@@ -1,4 +1,4 @@
-package main.java.version.third.partfirst;
+package main.java.version.third.filestat.partfirst;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -1,4 +1,4 @@
-package main.java.version2.pingpong_v4;
+package main.java.version.third.pingpong.fourth;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
