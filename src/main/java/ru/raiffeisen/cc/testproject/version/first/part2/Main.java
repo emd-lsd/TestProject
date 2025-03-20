@@ -1,4 +1,4 @@
-package main.java.part2;
+package main.java.ru.raiffeisen.cc.testproject.version.first.part2;
 
 import java.io.IOException;
 import java.nio.file.Files;

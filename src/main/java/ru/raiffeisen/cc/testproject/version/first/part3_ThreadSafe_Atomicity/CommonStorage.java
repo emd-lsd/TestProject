@@ -1,4 +1,4 @@
-package main.java.part3_ThreadSafe_Atomicity;
+package main.java.ru.raiffeisen.cc.testproject.version.first.part3_ThreadSafe_Atomicity;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;

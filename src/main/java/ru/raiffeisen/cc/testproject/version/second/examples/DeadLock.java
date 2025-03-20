@@ -1,4 +1,4 @@
-package main.java.version2.examples;
+package main.java.ru.raiffeisen.cc.testproject.version.second.examples;
 
 public class DeadLock {
     private static final Object lock1 = new Object();

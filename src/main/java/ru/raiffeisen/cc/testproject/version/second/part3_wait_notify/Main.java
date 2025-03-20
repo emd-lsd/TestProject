@@ -1,4 +1,4 @@
-package main.java.version2.part3_wait_notify;
+package main.java.ru.raiffeisen.cc.testproject.version.second.part3_wait_notify;
 
 import java.io.IOException;
 import java.nio.file.Files;
