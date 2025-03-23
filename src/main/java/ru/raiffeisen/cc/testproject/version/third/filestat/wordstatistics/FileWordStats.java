@@ -1,9 +1,9 @@
-package main.java.ru.raiffeisen.cc.testproject.version.third.filestat.partthird;
+package main.java.ru.raiffeisen.cc.testproject.version.third.filestat.wordstatistics;
 
 import java.util.Map;
 
 /**
- * Класс контейнер для статистики по файлу
+ * Container for file statistics
  */
 public class FileWordStats {
     private final String fileName;

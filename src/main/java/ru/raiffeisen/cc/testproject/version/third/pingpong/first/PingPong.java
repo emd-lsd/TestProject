@@ -5,6 +5,7 @@ package main.java.ru.raiffeisen.cc.testproject.version.third.pingpong.first;
  * флаг pingTurn для определения порядка
  */
 public class PingPong {
+
     private static final Object lock = new Object();
     private static boolean pingTurn = true;
 
@@ -16,11 +17,11 @@ public class PingPong {
         pongThread.start();
     }
 
-    static class Ping implements Runnable{
+    static class Ping implements Runnable {
 
         @Override
         public void run() {
-            for (int i = 0; i< 15; i++) {
+            for (int i = 0; i < 15; i++) {
                 synchronized (lock) {
                     while (!pingTurn) {
                         try {
@@ -58,3 +59,8 @@ public class PingPong {
         }
     }
 }
+
+
+// TODO: вынести все в разные класссы и добавить абстракицю через интерфейсы
+// TODO: семафор и countdownlatch в двойную абстракцию, а блокировку synchronized & reentrantlock в другую обычную абстракцию
+// TODO: ну и нейминг пакетов по логике задач а не по нумерации

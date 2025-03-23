@@ -1,6 +1,7 @@
-package main.java.ru.raiffeisen.cc.testproject.version.third.filestat.partthird;
+package main.java.ru.raiffeisen.cc.testproject.version.third.filestat.wordstatistics;
 
-import main.java.ru.raiffeisen.cc.testproject.version.third.filestat.partfirst.WordCounterService;
+import main.java.ru.raiffeisen.cc.testproject.version.third.filestat.service.WordCounterService;
+import main.java.ru.raiffeisen.cc.testproject.version.third.filestat.service.WordFrequencyService;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -10,7 +11,7 @@ import java.util.Queue;
 /**
  * Класс задачи потока для обработки каждого файла
  */
-public class WordCounterTask implements Runnable{
+public class WordCounterTask implements Runnable {
     private final Path filePath;
     private final Queue<Integer> countsQueue;
     private final Queue<FileWordStats> fileWordStats;

@@ -1,4 +1,4 @@
-package main.java.ru.raiffeisen.cc.testproject.version.third.filestat.partthird;
+package main.java.ru.raiffeisen.cc.testproject.version.third.filestat.service;
 
 import java.io.IOException;
 import java.nio.file.Files;
