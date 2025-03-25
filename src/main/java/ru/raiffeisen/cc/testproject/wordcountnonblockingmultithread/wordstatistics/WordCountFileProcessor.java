@@ -53,6 +53,15 @@ public class WordCountFileProcessor {
             Thread.currentThread().interrupt();
         }
     }
+
+    // for tests
+    public Queue<Integer> getCountsQueue() {
+        return countsQueue;
+    }
+
+    public Queue<Map<String, Integer>> getGlobalWordStats() {
+        return globalWordStats;
+    }
 }
 
 

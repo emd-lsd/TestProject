@@ -55,6 +55,18 @@ public class Main {
         totalCounter += count;
     }
 
+    // For testing purposes only
+    public static Map<String, Integer> getGlobalFrequency() {
+        synchronized (lock) {
+            return new HashMap<>(globalFrequency);
+        }
+    }
+
+    public static int getTotalCounter() {
+        synchronized (Main.class) {
+            return totalCounter;
+        }
+    }
 }
 
 
