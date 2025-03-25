@@ -11,6 +11,9 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Start point for multithreaded counting words by ExecutorService
+ */
 public class Main {
     //static volatile Integer testCounter = 0;
 
@@ -21,9 +24,7 @@ public class Main {
 
 
         try {
-            List<Path> files = Files.list(inputDir)
-                    .filter(Files::isRegularFile)
-                    .toList();
+            List<Path> files = Files.list(inputDir).filter(Files::isRegularFile).toList();
             ExecutorService executorService = Executors.newFixedThreadPool(files.size());
 
             for (Path file : files) {

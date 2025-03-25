@@ -5,6 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
+/**
+ * Counter task for multithreaded counting words in files
+ */
 public class WordCounter implements Callable {
     private final Path filePath;
     //private final AtomicInteger totalWordsCounter;
@@ -30,7 +33,7 @@ public class WordCounter implements Callable {
 
             System.out.printf("Файл: %s - %d слов%n", filePath.getFileName(), wordCount);
 
-            //totalWordsCounter.addAndGet(wordCount); // добавляем в общий счетчик
+            //totalWordsCounter.addAndGet(wordCount); // add to global common counter
 
 
             testCounter = testCounter + wordCount;
@@ -58,7 +61,7 @@ public class WordCounter implements Callable {
 
             System.out.printf("Файл: %s - %d слов%n", filePath.getFileName(), wordCount);
 
-            //totalWordsCounter.addAndGet(wordCount); // добавляем в общий счетчик
+            //totalWordsCounter.addAndGet(wordCount); // add to global common counter
 
 
             testCounter = testCounter + wordCount;
