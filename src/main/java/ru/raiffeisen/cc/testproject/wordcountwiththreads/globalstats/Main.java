@@ -9,9 +9,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Start point for multithreaded counting words by Threads using synchronization on common Object for lock
+ */
 public class Main {
     private static final Map<String, Integer> globalFrequency = new HashMap<>();
-    private static final Object lock = new Object(); // объект блокировки
+    private static final Object lock = new Object(); // Object for lock
     private static volatile int totalCounter = 0;
 
     public static void main(String[] args) throws IOException {
@@ -27,14 +30,13 @@ public class Main {
                 thread.start();
             }
             for (Thread thread : threads) {
-                thread.join(); // гарантируем порядок выполнения потоков
+                thread.join();
             }
 
             System.out.printf("Общее количество слов во всех файла: %d%n", totalCounter);
 
             System.out.println("\nСтатистика слов по всем файлам:");
-            globalFrequency.forEach((word, count) ->
-                    System.out.printf("  %s: %d%n", word, count));
+            globalFrequency.forEach((word, count) -> System.out.printf("  %s: %d%n", word, count));
 
         } catch (Exception e) {
             e.printStackTrace();

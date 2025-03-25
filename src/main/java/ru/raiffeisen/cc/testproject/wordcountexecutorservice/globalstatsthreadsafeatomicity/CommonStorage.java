@@ -3,6 +3,9 @@ package main.java.ru.raiffeisen.cc.testproject.wordcountexecutorservice.globalst
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Common concurrent map storage with atomicInteger value in map for atomicity RW operations
+ */
 public class CommonStorage {
     private final ConcurrentHashMap<String, AtomicInteger> globalCounter = new ConcurrentHashMap<>();
 
@@ -12,8 +15,6 @@ public class CommonStorage {
 
     public void printStorage() {
         System.out.println("\nОбщая частота всех слов");
-        globalCounter.forEach((word, count) ->
-                System.out.printf(" %s: %d%n", word, count.get())
-                );
+        globalCounter.forEach((word, count) -> System.out.printf(" %s: %d%n", word, count.get()));
     }
 }

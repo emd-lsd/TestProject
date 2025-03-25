@@ -6,6 +6,9 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Counter task for multithreaded counting words in files
+ */
 public class WordCounter implements Runnable {
     private final Path filePath;
 
@@ -25,19 +28,18 @@ public class WordCounter implements Runnable {
                 localFrequency.put(word, localFrequency.getOrDefault(word, 0) + 1);
             }
 
-            // Обновление глобальной статистики
+            // Update global stats
             Main.updateGlobalWordFrequency(localFrequency);
 
-            // Добавление в общий счетчик
+            // Add to global counter
             Main.addToTotalCounter(wordCount);
 
-            // Вывод локальной статистики
+            // Output local stats
             StringBuilder result = new StringBuilder();
             result.append(String.format("Файл: %s - %d слов%n", filePath.getFileName(), wordCount));
             localFrequency.forEach((word, count) -> result.append(String.format(" %s: %d%n", word, count)));
             System.out.println(result);
 
-            //System.out.printf("Файл: %s - %d слов%n", filePath.getFileName(), wordCount);
         } catch (IOException e) {
             System.err.println("Ошибка чтения файла: " + filePath);
         }

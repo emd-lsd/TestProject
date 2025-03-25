@@ -7,6 +7,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Start point for multithreaded counting words by Threads with blocking using synchronizations
+ */
 public class Main {
     private static int totalCounter = 0;
 
@@ -23,7 +26,7 @@ public class Main {
                 thread.start();
             }
             for (Thread thread : threads) {
-                thread.join(); // гарантируем порядок выполнения потоков
+                thread.join();
             }
 
             System.out.printf("Общее количество слов во всех файла: %d%n", totalCounter);

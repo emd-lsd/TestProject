@@ -9,9 +9,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Start point for multithreaded counting words by Threads using synchronization on common Object for lock
+ * and using wait-notify mechanism
+ */
 public class Main {
     private static final Map<String, Integer> globalFrequency = new HashMap<>();
-    private static final Object lock = new Object(); // объект блокировки
+    private static final Object lock = new Object(); // Object for lock
     private static volatile int totalCounter = 0;
     private static int completedThreads = 0;
     private static int totalThreads;
@@ -30,11 +34,8 @@ public class Main {
                 threads.add(thread);
                 thread.start();
             }
-//            for (Thread thread : threads) {
-//                thread.join(); // гарантируем порядок выполнения потоков
-//            }
 
-            // Ожидание завершения всех потоков
+            // Wait for complete all threads
             synchronized (lock) {
                 while (completedThreads < totalThreads) {
                     lock.wait();

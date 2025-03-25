@@ -10,15 +10,16 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Start point for local calculating word statistics by ExecutorService
+ */
 public class Main {
     public static void main(String[] args) throws IOException {
         Path inputDir = Paths.get("src/main/resources/input");
         AtomicInteger totalWordsCounter = new AtomicInteger(0);
 
         try {
-            List<Path> files = Files.list(inputDir)
-                    .filter(Files::isRegularFile)
-                    .toList();
+            List<Path> files = Files.list(inputDir).filter(Files::isRegularFile).toList();
             ExecutorService executorService = Executors.newFixedThreadPool(files.size());
 
             for (Path file : files) {

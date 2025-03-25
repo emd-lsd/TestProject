@@ -8,10 +8,13 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Counter task for multithreaded calculating word statistics in files
+ */
 public class WordCounter implements Runnable {
     private final Path filePath;
     private final AtomicInteger totalWordsCounter;
-    private final ConcurrentHashMap<String, Integer> globalFrequency; // общая память
+    private final ConcurrentHashMap<String, Integer> globalFrequency; // common storage - concurrent map
 
     public WordCounter(Path filePath, AtomicInteger totalWordsCounter, ConcurrentHashMap<String, Integer> globalFrequency) {
         this.filePath = filePath;
@@ -29,13 +32,13 @@ public class WordCounter implements Runnable {
                     .split("\\s+");
             int wordCount = words.length;
 
-            // подсчет частоты слов
+            // Word frequency count
             Map<String, Integer> wordFrequency = new HashMap<>();
             for (String word : words) {
                 wordFrequency.put(word, wordFrequency.getOrDefault(word, 0) + 1);
             }
 
-            // Вывод статистики
+            // Output stats
             StringBuilder result = new StringBuilder();
             result.append(String.format("Файл: %s - %d слов%n", filePath.getFileName(), wordCount));
 
@@ -44,12 +47,12 @@ public class WordCounter implements Runnable {
             );
             System.out.println(result);
 
-            // Обновление ообщей статистики
+            // Update common stats
             for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
                 globalFrequency.merge(entry.getKey(), entry.getValue(), Integer::sum);
             }
 
-            totalWordsCounter.addAndGet(wordCount); // добавляем в общий счетчик
+            totalWordsCounter.addAndGet(wordCount); // add to global counter
         } catch (IOException e) {
             System.err.println("Ошибка чтения файла: " + filePath);
         }

@@ -11,6 +11,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Start point for multithreaded calculating word statistics by ExecutorService
+ */
 public class Main {
     public static void main(String[] args) throws IOException {
         Path inputDir = Paths.get("src/main/resources/input");
