@@ -26,7 +26,7 @@ import static org.junit.Assert.assertTrue;
 public class WordCounterTest {
 
     @Test
-    public void emptyFile() throws Exception {
+    public void whenEmptyFile_thenCounterAndFrequencyIsEmpty() {
         Path file = Paths.get("src/test/resources/executorservice/logictest/empty.txt");
         AtomicInteger total = new AtomicInteger(0);
         ConcurrentHashMap<String, Integer> freq = new ConcurrentHashMap<>();
@@ -38,7 +38,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fileWithOneWord() throws Exception {
+    public void whenFileHasOneWord_thenCheckCounterAndFrequency() {
         Path file = Paths.get("src/test/resources/executorservice/logictest/single.txt");
         AtomicInteger total = new AtomicInteger(0);
         ConcurrentHashMap<String, Integer> freq = new ConcurrentHashMap<>();
@@ -50,7 +50,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void fileWithSpecialChars() throws Exception {
+    public void whenFileHasSpecialChars_thenCheckFrequencyForCorrectWords() {
         Path file = Paths.get("src/test/resources/executorservice/logictest/symbols.txt");
         AtomicInteger total = new AtomicInteger(0);
         ConcurrentHashMap<String, Integer> freq = new ConcurrentHashMap<>();
@@ -63,7 +63,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void cyrillicWords() throws Exception {
+    public void whenFileHasCyrillicWords_thenCheckFrequencyForCorrectWords() {
         Path file = Paths.get("src/test/resources/executorservice/concurrenttest/cyrillic.txt");
         AtomicInteger total = new AtomicInteger(0);
         ConcurrentHashMap<String, Integer> freq = new ConcurrentHashMap<>();
@@ -76,7 +76,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void concurrentProcessing() throws Exception {
+    public void whenFileHasRepeatedWords_thenCheckFrequency() throws Exception {
         Path file = Paths.get("src/test/resources/executorservice/concurrenttest/repeated.txt");
         AtomicInteger total = new AtomicInteger(0);
         ConcurrentHashMap<String, Integer> freq = new ConcurrentHashMap<>();
@@ -92,7 +92,7 @@ public class WordCounterTest {
     }
 
     @Test
-    public void concurrentDifferentFiles() throws Exception {
+    public void whenHasFewFilesWithRepeatedWords_thenCheckCounterAndFrequency() throws Exception {
         Path file1 = Paths.get("src/test/resources/executorservice/concurrenttest/single_word.txt");
         Path file2 = Paths.get("src/test/resources/executorservice/concurrenttest/repeated.txt");
         AtomicInteger total = new AtomicInteger(0);

@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Common concurrent map storage with atomicInteger value in map for atomicity RW operations
  */
 public class CommonStorage {
+
     private final ConcurrentHashMap<String, AtomicInteger> globalCounter = new ConcurrentHashMap<>();
 
     public void addWord(String word, int count) {

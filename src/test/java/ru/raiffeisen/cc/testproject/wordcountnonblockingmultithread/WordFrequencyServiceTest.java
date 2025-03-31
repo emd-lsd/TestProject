@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class WordFrequencyServiceTest {
     @Test
-    public void testCalculateWordFrequency() throws Exception {
+    public void whenHasFileWithMixOfWords_thenCheckFrequency() throws Exception {
         Path file = Paths.get("src/test/resources/nonblockingmultithread/mixed.txt");
         Map<String, Integer> freq = WordFrequencyService.calculateWordFrequency(file);
 

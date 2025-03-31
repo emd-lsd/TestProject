@@ -43,7 +43,7 @@ public class ThreadSyncWordCounterTest {
 
     // Basic functionality tests
     @Test
-    public void emptyFile() throws Exception {
+    public void whenFileIsEmpty_thenCheckCounterAndFrequencyForEmpty() throws Exception {
         Path file = Paths.get("src/test/resources/threads/empty.txt");
         new WordCounter(file).run();
         assertEquals(0, Main.getTotalCounter());
@@ -51,7 +51,7 @@ public class ThreadSyncWordCounterTest {
     }
 
     @Test
-    public void singleWordFile() throws Exception {
+    public void whenFileHasOneWord_thenCheckCounterAndFrequencyForOneWord() throws Exception {
         Path file = Paths.get("src/test/resources/threads/single_word.txt");
         new WordCounter(file).run();
         assertEquals(1, Main.getTotalCounter());
@@ -60,7 +60,7 @@ public class ThreadSyncWordCounterTest {
 
     // Concurrency tests
     @Test
-    public void concurrentUpdates() throws Exception {
+    public void whenHasFileWithRepeatedWordsAndStartFixedThreadPool_thenCheckTotalCounterAndFrequency() throws Exception {
         Path file = Paths.get("src/test/resources/threads/repeated.txt");
         int threadCount = 10;
         ExecutorService executor = Executors.newFixedThreadPool(threadCount);
@@ -77,7 +77,7 @@ public class ThreadSyncWordCounterTest {
     }
 
     @Test
-    public void differentFilesConcurrently() throws Exception {
+    public void whenHasDifferentFiles_thenCheckGlobalFrequency() throws Exception {
         Path file1 = Paths.get("src/test/resources/threads/concurrent_test1.txt");
         Path file2 = Paths.get("src/test/resources/threads/concurrent_test2.txt");
 
@@ -97,7 +97,7 @@ public class ThreadSyncWordCounterTest {
 
     // Stress test
     @Test
-    public void highConcurrencyStressTest() throws Exception {
+    public void whenHasLargeFile_thenGetCounterAfter20Threads() throws Exception {
         Path file = Paths.get("src/test/resources/threads/large_file.txt");
         int threadCount = 20;
         ExecutorService executor = Executors.newFixedThreadPool(threadCount);

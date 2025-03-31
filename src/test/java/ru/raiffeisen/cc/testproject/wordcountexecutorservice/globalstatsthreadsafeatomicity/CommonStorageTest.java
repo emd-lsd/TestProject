@@ -30,7 +30,7 @@ import static org.junit.Assert.assertTrue;
 public class CommonStorageTest {
 
     @Test
-    public void addWordShouldIncrementCounter() {
+    public void whenAddSameWords_thenCheckCorrectSum() {
         CommonStorage storage = new CommonStorage();
         storage.addWord("test", 2);
         storage.addWord("test", 3);
@@ -44,7 +44,7 @@ public class CommonStorageTest {
     }
 
     @Test
-    public void concurrentAddWord() throws Exception {
+    public void whenMultithreadedAddWord_thenCheckFrequencyForSum() throws InterruptedException {
         CommonStorage storage = new CommonStorage();
         int threadsCount = 10;
         ExecutorService executor = Executors.newFixedThreadPool(threadsCount);
@@ -71,7 +71,7 @@ public class CommonStorageTest {
     }
 
     @Test
-    public void concurrentWordCounters() throws Exception {
+    public void whenCreateTempFileAndAddMultiThreaded_thenCheckFrequencyForSum() throws Exception {
         // Create temporary file
         Path testFile = Files.createTempFile("test", ".txt");
         Files.write(testFile, Collections.singletonList("java"));
@@ -105,7 +105,7 @@ public class CommonStorageTest {
     }
 
     @Test
-    public void multipleThreadsShouldCorrectlyUpdateCounters() throws Exception {
+    public void whenMultiThreadedAddDifferentFilesByExecutorService_thenCheckFrequencyForCorrectSumOfRepeatedWords() throws Exception {
         Path file1 = Paths.get("src/test/resources/executorservice/concurrenttest/single_word.txt");
         Path file2 = Paths.get("src/test/resources/executorservice/concurrenttest/repeated.txt");
         AtomicInteger total = new AtomicInteger(0);
@@ -135,3 +135,10 @@ public class CommonStorageTest {
         }
     }
 }
+
+
+// TODO: Переименовать CommonStorage в globalCounter
+// TODO: вынести переиспользование bytearray в util для тестов
+// TODO: переделеать название в WHEN THEN
+// TODO: убрать неиспользуемые exception
+// TODO: сделать получение параметров в мейне через args

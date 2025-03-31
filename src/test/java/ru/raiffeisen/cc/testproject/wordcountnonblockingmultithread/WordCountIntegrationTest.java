@@ -39,7 +39,7 @@ public class WordCountIntegrationTest {
     }
 
     @Test
-    public void testFullProcessingPipeline() throws Exception {
+    public void whenHasWordCountFileProcessor_thenCheckGlobalStatsForEveryWord() throws Exception {
         processor.processFiles();
 
         int totalCount = processor.getCountsQueue().stream().filter(Objects::nonNull).mapToInt(Integer::intValue).sum();

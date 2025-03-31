@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Start point for multithreaded calculating word statistics by ExecutorService
  */
 public class Main {
+
     public static void main(String[] args) {
         Path inputDir = Paths.get("src/main/resources/input");
         AtomicInteger totalWordsCounter = new AtomicInteger(0);

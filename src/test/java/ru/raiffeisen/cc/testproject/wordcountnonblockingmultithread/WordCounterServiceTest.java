@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 public class WordCounterServiceTest {
 
     @Test
-    public void testCountWords() throws Exception {
+    public void whenHasFile_checkCounterService() throws Exception {
         Path file = Paths.get("src/test/resources/nonblockingmultithread/repeated.txt");
         assertEquals(3, WordCounterService.countWords(file));
     }

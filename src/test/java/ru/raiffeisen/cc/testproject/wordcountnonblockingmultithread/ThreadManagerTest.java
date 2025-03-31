@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 public class ThreadManagerTest {
 
     @Test
-    public void testProcessFiles() throws Exception {
+    public void whenHasFewFilesAndStartThreadManager_thenCheckProcessedFiles() throws Exception {
         List<Path> files = List.of(
                 Paths.get("src/test/resources/nonblockingmultithread/single_word.txt"),
                 Paths.get("src/test/resources/nonblockingmultithread/repeated.txt")
